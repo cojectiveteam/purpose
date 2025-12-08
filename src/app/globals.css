@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+
+
+@theme inline {
+  --color-primary: #610A73;
+  --color-secondary: #E8B681;
+  --color-accent: #F5C857;
+  --color-text: #303040;
+  --color-text-light: #F4F4F4;
+  --color-background: #1E1E1E;
+  --color-background-light: #FFE9B1;
+  --color-background-dark: #323232;
+
+
+  --font-geist: var(--font-geist-sans);
+  --font-big-shoulders: var(--font-big-shoulders);
+
+}
+
+
+@layer base {
+  p {
+    @apply text-base font-geist;
+  }
+}
+
+@layer components {}
+
+@layer utilities {
+
+  .gold-gradient {
+    background: linear-gradient(180deg, #996516 0%, #FFCC00 25%, #D4AF37 50%, #B8860B 100%);
+  }
+
+  .gold-gradient-40 {
+    background: linear-gradient(180deg, #996516 0%, #FFCC00 25%, #D4AF37 50%, #B8860B 100%);
+    opacity: 0.4;
+  }
+
+
+
+  .gold-text {
+    background: linear-gradient(180deg, #996516 0%, #FFCC00 25%, #D4AF37 50%, #B8860B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .custom-underline {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #6F6D6D;
+    }
+  }
+
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+/* Padding Utilities */
+@utility fp {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpx {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpy {
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpl {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpr {
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpt {
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpb {
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
