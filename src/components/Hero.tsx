@@ -1,5 +1,7 @@
+import GlowEffect from './GlowEffect';
 import PrimaryButton from './PrimaryButton';
 import Image from 'next/image';
+
 
 export default function Hero() {
     const eventDetails = [
@@ -26,27 +28,27 @@ export default function Hero() {
     ];
 
     return (
-        <section className="min-h-screen max-container flex gap-7 fp">
+        <section className="min-h-screen max-container flex flex-col lg:flex-row gap-7 fp">
             {/* Hero Left */}
-            <div className="w-[45%] flex flex-col gap-9">
+            <div className="relative w-full lg:w-[45%] flex flex-col gap-9">
                 {/* First Row */}
-                <div className="flex flex-col gap-5">
-                    <div className="text-accent text-lg font-big-shoulders font-semibold uppercase">[ A COJECTIVE Initiative ]</div>
-                    <div className="text-6xl text-white font-big-shoulders font-semibold uppercase leading-tight">Find Clarity. Discover Your Purpose. Start Your Journey Forward.</div>
-                    <p className="text-base text-text-light font-geist font-normal">A powerful FREE live session that helps students, freshers, and career-restarters understand their strengths, uncover their purpose, build confidence, and identify the exact next step in their personal and professional journey.</p>
+                <div className="flex flex-col gap-5 z-1">
+                    <div className="text-accent text-base md:text-lg font-big-shoulders font-semibold uppercase">[ A COJECTIVE Initiative ]</div>
+                    <div className="text-3xl md:text-[46px] lg:text-4xl xl:text-5xl 2xl:text-6xl text-white font-big-shoulders font-semibold uppercase leading-tight">Find Clarity. Discover Your Purpose. Start Your Journey Forward.</div>
+                    <p className=" text-text-light font-geist font-normal">A powerful FREE live session that helps students, freshers, and career-restarters understand their strengths, uncover their purpose, build confidence, and identify the exact next step in their personal and professional journey.</p>
                 </div>
                 {/* End of First Row */}
 
                 {/* Second Row */}
-                <div className="grid grid-flow-row grid-cols-[repeat(2,max-content)] gap-x-9 gap-y-16 text-white">
+                <div className="grid grid-flow-row grid-cols-[repeat(2,max-content)] gap-x-9 gap-y-8 2xl:gap-y-16 text-white z-1">
 
                     {eventDetails.map((detail, index) => (
-                        <div key={index} className="flex  flex-col gap-4">
-                            <div className="flex items-center gap-3 text-xs font-geist font-normal ">
-                                <Image src={detail.icon} alt="Calendar" width={26} height={26} />
+                        <div key={index} className="flex  flex-col gap-2 md:gap-4">
+                            <div className="flex items-center gap-2 md:gap-3 text-xs font-geist font-normal ">
+                                <Image className='w-5 h-5' src={detail.icon} alt="Calendar" width={26} height={26} />
                                 <div>{detail.title}</div>
                             </div>
-                            <div className="text-2xl font-big-shoulders font-semibold">{detail.value}</div>
+                            <div className="text-lg md:text-2xl font-big-shoulders font-semibold">{detail.value}</div>
                         </div>
                     ))}
                 </div>
@@ -54,20 +56,22 @@ export default function Hero() {
                 {/* End of Second Row */}
 
                 <PrimaryButton>Register For Free</PrimaryButton>
-
+                <Image className='absolute -bottom-10 right-0' src="/icons/spark-multi.svg" alt="spark" width={150} height={155.46} />
+                <GlowEffect className="top-40 left-30" />
 
             </div>
             {/* End of Hero Left */}
 
             {/* Hero Right */}
-            <div className="w-[55%] flex flex-col justify-end">
+            <div className="relative w-full lg:w-[55%] flex flex-col justify-end">
 
-                <div className="h-[85%] grid grid-flow-col grid-cols-3 grid-rows-2 gap-5">
+                <div className="h-full lg:h-[85%] grid grid-flow-col grid-cols-3 grid-rows-2 gap-5">
                     <div className="bg-red-300 rounded-t-full"></div>
                     <div className="bg-green-300 "></div>
-                    <div className="bg-blue-300 col-span-2 row-span-2 rounded-t-full"></div>
+                    <div className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-auto bg-blue-300 col-span-2 row-span-2 rounded-t-full"></div>
 
                 </div>
+                <Image className='absolute top-20 right-20 -rotate-60' src="/icons/hand-drawn.svg" alt="spark" width={44.17} height={51.38} />
             </div>
             {/* End of Hero Right */}
 

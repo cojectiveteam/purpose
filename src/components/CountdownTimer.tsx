@@ -20,7 +20,7 @@ export default function CountdownTimer({
     variant = 'default',
     className = ''
 }: CountdownTimerProps) {
-    const [targetDate] = useState(() => customTargetDate || new Date('2025-12-14T11:30:00'));
+    const [targetDate] = useState(() => customTargetDate || new Date('2025-12-30T11:30:00'));
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [mounted, setMounted] = useState(false);
 
@@ -51,32 +51,32 @@ export default function CountdownTimer({
     // Default variant - with purple background blocks
     const DefaultTimeBlock = ({ value, label }: { value: number; label: string }) => (
 
-        <div className="flex flex-col gap-4 items-center bg-white text-primary rounded-2xl px-6 py-5 text-center min-w-[110px]">
-            <div className="text-6xl font-semibold tabular-nums">
+        <div className="flex flex-col gap:2 lg:gap-3 xl:gap-4 items-center bg-white text-primary rounded-2xl px-2 py-3 md:py-5 lg:px-6 text-center min-w-[60px] md:min-w-[110px]">
+            <div className="text-2xl sm:text-3xl md:text-[38px] lg:text-5xl xl:text-6xl font-semibold tabular-nums">
                 {value.toString().padStart(2, '0')}
             </div>
-            <div className="text-base text-[#333333] font-bold capitalize tracking-wider">{label}</div>
+            <div className="text-xs md:text-base text-[#333333] font-bold capitalize tracking-wider">{label}</div>
         </div>
 
     );
 
     // Minimal variant - no background
     const MinimalTimeBlock = ({ value, label }: { value: number; label: string }) => (
-        <div className="flex flex-col items-center font-big-shoulders">
-            <span className="text-5xl  font-semibold tabular-nums text-primary">
+        <div className="flex flex-col items-center justify-center  font-big-shoulders">
+            <span className="text-xl mmd:text-2xl md:text-5xl font-semibold tabular-nums text-primary leading-4 md:leading-12">
                 {value.toString().padStart(2, '0')}
             </span>
-            <span className="text-base text-[#333333] mt-1 capitalize tracking-wider">{label}</span>
+            <span className="text-xxs mlg:text-xs md:text-base text-[#333333] mt-1 capitalize tracking-wider">{label}</span>
         </div>
     );
 
     const TimeBlock = variant === 'minimal' ? MinimalTimeBlock : DefaultTimeBlock;
     const separatorStyle = variant === 'minimal'
-        ? "text-black/30 text-3xl font-bold"
-        : "text-black/30 text-4xl font-bold";
+        ? "text-black/30 text-base mlg:text-xl  md:text-3xl font-bold"
+        : "text-black/30 text-2xl md:text-4xl font-bold";
 
     return (
-        <div className={`flex items-center gap-5 ${className}`}>
+        <div className={`flex items-center justify-center gap-1 mmd:gap-2 md:gap-5 ${className}`}>
             <TimeBlock value={timeLeft.days} label="Days" />
             <span className={separatorStyle}>:</span>
             <TimeBlock value={timeLeft.hours} label="Hours" />

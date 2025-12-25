@@ -16,12 +16,23 @@
   --font-geist: var(--font-geist-sans);
   --font-big-shoulders: var(--font-big-shoulders);
 
+  --text-xxs: 0.625rem;
+
+  /* Mobile Small (320px) */
+  --breakpoint-msm: 20rem;
+  /* Mobile Medium (375px) */
+  --breakpoint-mmd: 23.4375rem;
+  /* Mobile Large (425px) */
+  --breakpoint-mlg: 26.5625rem;
+  /* Laptop large (1440px) */
+  --breakpoint-2xl: 90rem;
+
 }
 
 
 @layer base {
   p {
-    @apply text-base font-geist;
+    @apply text-sm md:text-base font-geist;
   }
 }
 
@@ -59,6 +70,10 @@
       height: 2px;
       background-color: #6F6D6D;
     }
+  }
+
+  .swiper-slide {
+    @apply h-auto;
   }
 
   .max-container {

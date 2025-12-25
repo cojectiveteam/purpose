@@ -9,7 +9,7 @@ interface CheckListItemProps {
 export default function CheckListItem({
     children,
     bgClass = "gold-gradient",
-    bgSize = "w-6 h-6",
+    bgSize = "w-5 h-5 md:w-6 md:h-6",
     svgSize = "w-4 h-4",
     gap = "gap-3",
 }: CheckListItemProps) {

@@ -53,34 +53,34 @@ export default function Faq() {
 
     ];
     return (
-        <section className="w-full flex flex-col gap-15 fp max-container bg-background-light">
+        <section className="w-full flex flex-col gap-7 md:gap-15 fp max-container bg-background-light">
 
             {/* First Row */}
             <div>
                 <div className="flex flex-col gap-2">
                     <div className="text-lg">[ ask me queries ]</div>
-                    <h2 className="text-[58px] font-big-shoulders font-semibold uppercase leading-none">Frequently Asked Questions</h2>
+                    <h2 className="text-2xl md:text-4xl xl:text-[58px] font-big-shoulders font-semibold uppercase leading-none">Frequently Asked Questions</h2>
                 </div>
             </div>
             {/* End First Row */}
 
             {/* Second Row */}
-            <div className="flex gap-8">
-                <div className="w-[60%]">
-                    <div className="space-y-10">
+            <div className="flex flex-col xl:flex-row gap-8 md:gap-15 lg:gap-15 xl:gap-8">
+                <div className="w-full xl:w-[60%]">
+                    <div className="space-y-5 md:space-y-8 xl:space-y-10">
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                className={`relative ${index !== faqs.length - 1 ? 'pb-10 after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-[repeating-linear-gradient(to_right,#333_0_6px,transparent_6px_15px)]' : ''}`}
+                                className={`relative ${index !== faqs.length - 1 ? 'pb-5 md:pb-8 xl:pb-10 after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-[repeating-linear-gradient(to_right,#333_0_6px,transparent_6px_15px)]' : ''}`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                                     className="w-full flex items-center justify-between text-left"
                                 >
-                                    <span className="text-2xl font-big-shoulders font-bold capitalize text-[#333333] pr-4">
+                                    <span className="text-base md:text-xl lg:text-2xl font-big-shoulders font-bold capitalize text-[#333333] pr-4">
                                         {index + 1}. {faq.question}
                                     </span>
-                                    <span className="text-3xl text-[#333333] shrink-0">
+                                    <span className=" text-3xl text-[#333333] shrink-0">
                                         {openIndex === index ? '−' : '+'}
                                     </span>
                                 </button>
@@ -91,9 +91,9 @@ export default function Faq() {
                         ))}
                     </div>
                 </div>
-                <div className="w-[40%] flex flex-col gap-8">
-                    <div className="h-[50%] bg-background-dark rounded-[30px]"></div>
-                    <div className="h-[50%] bg-background-dark rounded-[30px]"></div>
+                <div className="w-full xl:w-[40%] flex flex-col sm:flex-row gap-5 lg:gap-8">
+                    <div className="w-full h-[250px] lg:h-[350px] xl:h-[50%] bg-background-dark rounded-[30px]"></div>
+                    <div className="w-full h-[250px] lg:h-[350px] xl:h-[50%] bg-background-dark rounded-[30px]"></div>
 
                 </div>
             </div>

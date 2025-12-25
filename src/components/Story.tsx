@@ -1,18 +1,20 @@
+import Image from "next/image";
+import GlowEffect from "./GlowEffect";
 export default function Story() {
     return (
-        <section className="flex fpx gap-10 max-container">
+        <section className="flex flex-col xl:flex-row fpx gap-10 max-container">
             {/* Left Column */}
-            <div className="w-1/2 flex flex-col gap-8 text-white">
-                <div className="flex flex-col gap-0">
-                    <h2 className="text-[64px] font-big-shoulders font-bold  uppercase gold-text">
+            <div className="w-full xl:w-1/2 flex flex-col gap-8 text-white">
+                <div className="flex flex-col gap-5 xl:gap-0">
+                    <h2 className="text-3xl md:text-5xl xl:text-[64px] font-big-shoulders font-bold  uppercase gold-text">
                         THE ORIGIN STORY
                     </h2>
-                    <div className="text-[42px] font-geist font-light leading-tight">
+                    <div className="text-xl md:text-3xl xl:text-[42px] font-geist font-light leading-tight">
                         Why we built The Purpose Project  a message directly from the mentors.
                     </div>
                 </div>
 
-                <div className="text-xl font-geist font-medium">Over 5 decades of collect working experience in HR and leadership, we’ve watched something heartbreaking repeat itself:</div>
+                <div className="text-base md:text-xl font-geist font-medium">Over 5 decades of collect working experience in HR and leadership, we’ve watched something heartbreaking repeat itself:</div>
                 <div className="flex flex-col gap-5">
                     <p>Brilliant people doubting themselves.</p>
                     <p>Talented students feeling lost.</p>
@@ -32,9 +34,13 @@ export default function Story() {
             {/* End of Left Column */}
 
             {/* Right Column */}
-            <div className="w-1/2 flex items-end gap-5">
-                <div className="w-[40%] h-[275px] bg-amber-100 rounded-t-full"></div>
-                <div className="w-[60%] h-[563px] bg-amber-100 rounded-t-full border-l-15 border-accent"></div>
+            <div className="relative w-full xl:w-1/2 flex items-end gap-5">
+                <Image className='absolute top-40 left-30' src="/icons/spark-multi-purple.svg" alt="spark" width={150} height={150.46} />
+                <Image className='absolute bottom-70 left-40' src="/icons/spiral.svg" alt="spiral" width={46.78} height={45.91} />
+                <GlowEffect className="top-0 -right-50" />
+                <GlowEffect bgClass="bg-primary" className="top-60 -left-10" />
+                <div className="w-[40%]  h-[140px] sm:h-[250px] lg:h-[275px] bg-amber-100 rounded-t-full z-1"></div>
+                <div className="w-[60%]  h-[297px] sm:h-[407px] lg:h-[563px] bg-amber-100 rounded-t-full border-l-15 border-accent z-1"></div>
             </div>
             {/* End of Right Column */}
         </section>

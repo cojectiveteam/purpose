@@ -67,16 +67,16 @@ export default function Statistics() {
 
     return (
         <div className="flex flex-col items-center gap-10 bg-background-light fp font-big-shoulders max-container">
-            <h2 className="text-[54px] uppercase font-semibold text-text">Event Starts In</h2>
+            <h2 className="text-3xl md:text-[38px] lg:text-5xl xl:text-[54px] uppercase font-semibold text-text">Event Starts In</h2>
             <CountdownTimer variant="default" />
-            <div ref={statsRef} className="flex gap-30 mt-5">
-                <div className="flex gap-5 items-center">
-                    <div className="text-9xl text-primary font-bold">{years}+</div>
-                    <div className="text-2xl font-bold">Backed by 20+ years of HR <br />leadership</div>
+            <div ref={statsRef} className="flex gap-5 sm:gap-10 lg:gap-30 mt-0 md:mt-5">
+                <div className="flex gap-2 md:gap-5 items-center">
+                    <div className="text-5xl sm:text-6xl md:text-8xl xl:text-9xl text-primary font-bold">{years}+</div>
+                    <div className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold">Backed by 20+ years of HR <br />leadership</div>
                 </div>
-                <div className="flex gap-5 items-center">
-                    <div className="text-9xl text-primary font-bold">{people >= 1000 ? (people / 1000).toFixed(0) + 'k' : people}+</div>
-                    <div className="text-2xl font-bold">people guided</div>
+                <div className="flex gap-2 md:gap-5 items-center">
+                    <div className="text-5xl sm:text-6xl md:text-8xl xl:text-9xl text-primary font-bold">{people >= 1000 ? (people / 1000).toFixed(0) + 'k' : people}+</div>
+                    <div className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold">people guided</div>
                 </div>
             </div>
         </div>

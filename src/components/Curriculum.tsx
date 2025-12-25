@@ -1,55 +1,137 @@
+import { title } from "process";
+import GlowEffect from "./GlowEffect";
 import PrimaryButton from "./PrimaryButton";
 import Image from "next/image";
+
+interface Cycle {
+    title: string;
+    rounded: "left" | "right";
+    cycleClass: string;
+}
+const cycle: Cycle[] = [
+    {
+        title: "A powerful self-discovery\nexercise to uncover\nhidden strengths",
+        rounded: "left",
+        cycleClass: "md:top-0 md:left-10 lg:left-30 xl:top-10 xl:left-60 col-start-1 row-start-1 col-span-2 row-span-1 sm:col-span-1"
+    }
+    ,
+    {
+        title: "How to evaluate career\noptions with a clarity-\nfirst mindset",
+        rounded: "left",
+        cycleClass: "md:top-35 md:left-0 lg:top-40 lg:left-20  xl:top-60 xl:left-45 col-start-1 row-start-2 col-span-2 row-span-1 sm:col-span-1"
+    },
+    {
+        title: "The one clarity question \n that instantly shifts your \n thinking",
+        rounded: "left",
+        cycleClass: "md:top-70 md:-left-5 lg:top-80 lg:left-0 xl:top-110 xl:left-20 col-start-1 row-start-3 col-span-2 row-span-1 sm:col-span-1 sm:col-start-2 sm:row-start-1"
+    },
+    {
+        title: "Understanding identity,\n purpose, and energy \n alignment",
+        rounded: "right",
+        cycleClass: "md:-top-10 md:right-55 xl:top-0 xl:right-60 col-start-2 row-start-4 col-span-2 row-span-1 sm:col-span-1 sm:col-start-2 sm:row-start-3"
+    },
+    {
+        title: " How to find your “why” \n without confusion",
+        rounded: "right",
+        cycleClass: "md:top-18 md:right-10 lg:top-25 xl:top-40 xl:right-10 col-start-3 row-start-1 col-span-2 row-span-1 sm:col-span-1 sm:col-start-2 sm:row-start-2"
+    },
+    {
+        title: "Understanding identity,\n purpose, and energy \n alignment",
+        rounded: "right",
+        cycleClass: "md:top-45 md:right-0 lg:top-55  xl:top-80 xl:right-10 col-start-3 row-start-2 col-span-2 row-span-1 sm:col-span-1 sm:col-start-3 sm:row-start-1"
+    },
+    {
+        title: " Reflection tasks + a \n guided breakthrough \n moment",
+        rounded: "right",
+        cycleClass: "md:top-75 md:right-10 lg:top-90 lg:right-20 xl:top-120 xl:right-55 col-start-3 row-start-3 col-span-2 row-span-1 sm:col-span-1 sm:col-start-3 sm:row-start-2"
+    }
+]
+
+const learnData = [
+    {
+        title: "A guided journey into self-awareness",
+        subText: "You will understand the root of your thoughts, behaviors, choices, and strengths through scientifically backed reflection tools.",
+        learnClass: "sm:col-span-2",
+    },
+    {
+        title: "Your strength blueprint",
+        subText: "Learn how to identify natural strengths you’ve never noticed - strengths shaped by your personality, patterns, and lived experiences.",
+        learnClass: "sm:col-span-2",
+    },
+    {
+        title: "The energy alignment method",
+        subText: "Understand what drains you emotionally vs what energizes and excites you — crucial for choosing a career direction you can sustain long-term.",
+        learnClass: "sm:col-span-2",
+    },
+    {
+        title: "Your earnable passion zone",
+        subText: "A practical insight on how to align what you love, what you’re good at, and what the world pays for — without unrealistic expectations.",
+        learnClass: "sm:col-span-2",
+    },
+    {
+        title: "Breaking limiting beliefs & conditioning",
+        subText: "Learn why you feel low confidence, imposter syndrome, or self-doubt — and how to begin rewiring these patterns.",
+        learnClass: "sm:col-span-2",
+    },
+    {
+        title: "The confidence loop framework",
+        subText: "Understand how confidence is built through small wins, evidence, and alignment — not motivation.",
+        learnClass: "sm:col-span-2",
+    }, {
+        title: "Your 30-day purpose plan",
+        subText: "A simple, clear guide on where to begin, what to do next, and how to build momentum.",
+        learnClass: "sm:col-span-2 sm:col-start-2 ",
+    }
+]
+function Cycle({ title, rounded, cycleClass }: Cycle) {
+    const isLeft = rounded === "left";
+
+    return (
+        <div className={`md:absolute bg-background-dark rounded-t-[15px] md:rounded-t-[20px] ${isLeft ? "rounded-bl-[15px] md:rounded-bl-[20px]" : "rounded-br-[15px] md:rounded-br-[20px]"}  p-4 md:p-5 lg:p-6  sm:whitespace-pre-wrap ${cycleClass}`}>
+            {title}
+        </div>
+    );
+}
+
 
 export default function Curriculum() {
 
 
     return (
-        <section className="flex flex-col items-center   fpt bg-background max-container text-white ">
-            <div className="flex flex-col gap-19 fpx items-center">
+        <section className="relative flex flex-col items-center   fpt bg-background max-container text-white ">
+            <GlowEffect className="top-1/2 -left-30 -translate-y-1/2" />
+            <GlowEffect className="top-1/2 -right-30 -translate-y-1/2" />
+            <div className="flex flex-col gap-10 md:gap-19 fpx items-center">
                 {/* First Row */}
                 <div className="flex flex-col items-center gap-6 font-big-shoulders">
-                    <h2 className="text-[64px] gold-text">WHAT YOU WILL LEARN</h2>
-                    <div className="w-[60%] text-[46px] text-center">What you will experience inside the FREE live session</div>
+                    <h2 className="text-3xl md:text-[46px] xl:text-[64px] gold-text">WHAT YOU WILL LEARN</h2>
+                    <div className="w-full md:w-[70%] xl:w-[60%] text-2xl md:text-4xl xl:text-[46px] text-center">What you will experience inside the FREE live session</div>
                 </div>
                 {/* End of First Row */}
 
                 {/* Second Row */}
-                <div className="flex flex-col items-center gap-14">
-                    <div className="grid grid-cols-3 grid-rows-3 gap-9">
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">1. A guided journey into self-awareness</div>
-                            <p>You will understand the root of your thoughts, behaviors, choices, and strengths through scientifically backed reflection tools.</p>
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">2. Your Strength Blueprint</div>
-                            <p>Learn how to identify natural strengths you’ve never noticed — strengths shaped by your personality, patterns, and lived experiences.</p>
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">3. The Energy Alignment Method</div>
-                            <p>Understand what drains you emotionally vs what energizes and excites you — crucial for choosing a career direction you can sustain long-term.</p>
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">4. Your Earnable Passion Zone</div>
-                            <p>A practical insight on how to align what you love, what you’re good at, and what the world pays for — without unrealistic expectations.</p>
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">5. Breaking Limiting Beliefs & Conditioning</div>
-                            <p>Learn why you feel low confidence, imposter syndrome, or self-doubt — and how to begin rewiring these patterns.</p>
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">6. The Confidence Loop Framework</div>
-                            <p>Understand how confidence is built through small wins, evidence, and alignment — not motivation.</p>
-                        </div>
-                        <div className="flex flex-col gap-5  p-6">
+                <div className="relative flex flex-col items-center gap-10 md:gap-14">
+                    <GlowEffect className="top-1/3 left-1/3 -translate-x-1/3 -translate-y-1/3" />
+                    <GlowEffect className="top-1/3 right-1/3 translate-x-1/3 -translate-y-1/3" />
+                    <div className="grid grid-cols-1 grid-rows-7 sm:grid-cols-4 sm:grid-rows-4 md:grid-cols-3 md:grid-rows-3 lg:grid-cols-4 lg:grid-rows-4 gap-5 md:gap-9 z-1">
 
-                        </div>
-                        <div className="flex flex-col gap-5 bg-background-dark rounded-[20px] p-6">
-                            <div className="text-[25px] font-big-shoulders gold-text">7. Your 30-Day Purpose Plan</div>
-                            <p>A simple, clear guide on where to begin, what to do next, and how to build momentum.</p>
-                        </div>
-                        <div className="flex flex-col gap-5  p-6">
+                        {learnData.map((learn, index) => {
+                            return (
+                                <div key={index} className={`flex flex-col gap-5 bg-background-dark rounded-[15px] md:rounded-[20px] p-6 ${learn.learnClass}`}>
+                                    <div className="text-lg md:text-[25px] font-big-shoulders gold-text leading-tight">{index + 1}. {learn.title}</div>
+                                    <p>{learn.subText}</p>
+                                </div>
+                            );
 
+
+                        })}
+
+                        <div className="hidden sm:flex justify-end items-center col-start-1 row-start-3 sm:row-start-4">
+                            <Image src="/icons/hand-drawn.svg" alt="curriculum" width={102.5} height={119.23} />
+                        </div>
+
+                        <div className="hidden sm:flex justify-center items-center col-start-3 row-start-3 sm:col-start-4 sm:row-start-4 ">
+                            <Image src="/icons/spark-multi.svg" alt="curriculum" width={150} height={155.46} />
                         </div>
                     </div>
 
@@ -58,50 +140,27 @@ export default function Curriculum() {
                 {/* End of Second Row */}
 
                 {/* Third Row */}
-                <div className="w-full flex flex-col items-center gap-16">
-                    <div className="w-[40%] text-[46px] font-big-shoulders text-center">Why most people feel stuck and how to break the cycle</div>
+                <div className="w-full flex flex-col items-center gap-10 md:gap-16">
+                    <div className="w-full md:w-[80%] lg:w-[70%] xl:w-[40%] text-2xl md:text-4xl lg:text-[46px] font-big-shoulders text-center">Why most people feel stuck and how to break the cycle</div>
 
-                    <div className="relative w-full flex justify-center pt-22 capitalize">
-                        <Image src="/images/young-woman.webp" alt="curriculum" width={587} height={616} />
+                    <div className="relative w-full grid grid-cols-4 grid-rows-[repeat(4, auto)] sm:grid-cols-3 sm:grid-rows-3 grid-flow-col gap-4 md:flex md:justify-center pt-0 md:pt-22 text-xs  lg:text-sm xl:text-base capitalize">
+                        <Image className="w-full sm:w-[90%] md:w-[45%] xl:w-[587px] h-auto xl:h-[616px] col-span-4 row-span-1 row-start-5 col-start-1 sm:col-start-2  z-1" src="/images/young-woman.webp" alt="curriculum" width={587} height={616} />
+                        <GlowEffect className="top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/3" />
+                        <Image className="absolute top-20 left-1/2" src="/icons/exclamation-mark.svg" alt="Exclamation Mark" width={39.14} height={51} />
 
+                        {cycle.map((item, index) => (
+                            <Cycle key={index} title={item.title} rounded={item.rounded} cycleClass={item.cycleClass} />
+                        ))}
 
-                        {/* Left Alignment */}
-                        <div className="absolute top-10 left-60  bg-background-dark rounded-t-[20px] rounded-bl-[20px] p-6">
-                            A powerful self-discovery <br /> exercise to uncover <br /> hidden strengths
-                        </div>
-                        <div className="absolute top-60 left-45  bg-background-dark rounded-t-[20px] rounded-bl-[20px] p-6">
-                            How to evaluate career <br /> options with a clarity- <br /> first mindset
-                        </div>
-                        <div className="absolute top-110 left-20  bg-background-dark rounded-t-[20px] rounded-bl-[20px] p-6">
-                            The one clarity question <br /> that instantly shifts your <br /> thinking
-                        </div>
-
-                        {/* End of Left Alignment */}
-
-                        {/* Right Alignment */}
-                        <div className="absolute top-0 right-60  bg-background-dark rounded-t-[20px] rounded-br-[20px] p-6">
-                            Understanding identity,<br /> purpose, and energy <br /> alignment
-                        </div>
-                        <div className="absolute top-40 right-10  bg-background-dark rounded-t-[20px] rounded-br-[20px] p-6 min-h-[120px]">
-                            How to find your “why” <br /> without confusion
-                        </div>
-                        <div className="absolute top-80 right-10  bg-background-dark rounded-t-[20px] rounded-br-[20px] p-6">
-                            Understanding identity,<br /> purpose, and energy <br /> alignment
-                        </div>
-                        <div className="absolute top-120 right-55  bg-background-dark rounded-t-[20px] rounded-br-[20px] p-6">
-                            Reflection tasks + a <br /> guided breakthrough <br /> moment
-                        </div>
-
-                        {/* End of Right Alignment */}
                     </div>
                 </div>
                 {/* End of Third Row */}
 
 
             </div>
-            <div className="w-full flex flex-col items-center gap-0 fp font-big-shoulders bg-background-light">
-                <h2 className="text-[64px]  text-primary">WHAT YOU WILL LEARN</h2>
-                <div className="text-[25px] text-text font-semibold">See the transformation you’ll experience in just one session</div>
+            <div className="w-full flex flex-col items-center gap-2 md:gap-0 fp font-big-shoulders bg-background-light">
+                <h2 className="text-3xl md:text-[46px] xl:text-[64px]  text-primary">WHAT YOU WILL LEARN</h2>
+                <div className="text-lg md:text-[25px] text-text text-center md:text-left font-semibold">See the transformation you’ll experience in just one session</div>
             </div>
         </section>
     );

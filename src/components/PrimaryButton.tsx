@@ -33,7 +33,7 @@ export default function PrimaryButton({
     href,
     className = ""
 }: PrimaryButtonProps) {
-    const baseStyles = "bg-primary font-big-shoulders text-base capitalize text-text-light px-7 py-3 rounded-full max-w-max flex gap-3 items-center hover:opacity-90 transition-opacity";
+    const baseStyles = "bg-primary font-big-shoulders text-sm md:text-base capitalize text-text-light px-7 py-3 rounded-full max-w-max flex gap-3 items-center hover:opacity-90 transition-opacity";
 
     const content = (
         <>

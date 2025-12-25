@@ -19,7 +19,7 @@ import Unique from "@/components/Unique";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-gold selection:text-white pt-20">
+    <main className="min-h-screen bg-background text-foreground selection:bg-gold selection:text-white pt-20 overflow-hidden">
       <Navbar />
       <Hero />
       <Statistics />
